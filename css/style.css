@@ -1,0 +1,7 @@
+.about-me{
+    height: 100vh;
+    background-color: rgb(218, 201, 166);
+    position: fixed;
+    width: 100%;
+    background-image: url("../images/background/texture.png");
+}
