@@ -46,7 +46,7 @@
 }
 
 .description{
-    font-family: "serif", serif;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, system-ui;
     font-size: 18px;
     display: flex;
     margin-top: 25px;
@@ -149,4 +149,55 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
+}
+
+.experience{
+    display: flex;
+    background-color: #f9f9f5;
+    background-image: url("../images/background/texture.png");
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.experience-grid{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 150px;
+    margin-bottom: 40px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    width: 35%;
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.experience-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.exp-name{
+    font-size: 20px!important;
+    margin-bottom: 5px!important;
+}
+
+.exp{
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, system-ui;
+    color: #37393d;
+}
+
+#swjtu{
+    height: 100px;
+}
+
+#merced{
+    height: 120px;
 }
