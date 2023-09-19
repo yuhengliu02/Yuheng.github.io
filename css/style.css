@@ -2,7 +2,6 @@
     display: flex;
     height: 100vh;
     background-color: rgb(218, 201, 166);
-    /*position: fixed;*/
     width: 100%;
     background-image: url("../images/background/texture.png");
     flex-direction: column;
@@ -141,4 +140,13 @@
 .paper-link:hover{
     color: #CC1E42!important;
     text-decoration: underline!important;
+}
+
+.project{
+    display: flex;
+    background-color: #fcf3e5;
+    background-image: url("../images/background/texture.png");
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
 }
