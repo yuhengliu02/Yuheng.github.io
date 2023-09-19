@@ -1,5 +1,6 @@
 html{
     scroll-behavior:smooth;
+    color: #37393d!important;
 }
 
 .w {
@@ -38,8 +39,9 @@ button {
 }
 
 a {
-    color: #D6D6D6 !important;
+    color: #37393d !important;
     text-decoration: none !important;
+    transition: ease 0.4s;
 }
 
 p {

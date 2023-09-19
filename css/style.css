@@ -25,4 +25,36 @@
     font-weight: bold;
     margin-top: 20px;
     font-family: "ui-serif,Georgia,Cambria,Times New Roman,Times,serif", serif;
+    color: #37393d;
+}
+
+.segmentation{
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.alternative-link{
+    display: flex;
+    font-family: "ui-serif,Georgia,Cambria,Times New Roman,Times,serif", serif;
+    font-size: 18px;
+    color: #37393d!important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.coming-soon{
+    cursor: default;
+}
+
+.description{
+    font-family: "serif", serif;
+    font-size: 18px;
+    display: flex;
+    margin-top: 25px;
+    width: 80%;
+    flex-direction: column;
+}
+
+.line-feed{
+    padding-bottom:20px;
 }
