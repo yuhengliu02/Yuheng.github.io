@@ -224,3 +224,26 @@
 .hon{
     padding-bottom: 10px;
 }
+
+.footer{
+    display: flex;
+    position: relative;
+    background-color: #f9f9f5;
+    background-image: url("../images/background/texture.png");
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.recorder{
+    position: absolute;
+    display: block;
+    background-color: #CC1E42;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    right: 40px;
+    bottom: 9px;
+    cursor: default;
+}
