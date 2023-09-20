@@ -56,6 +56,7 @@
 
 .line-feed{
     padding-bottom:20px;
+    text-align: justify;
 }
 
 .research{
@@ -200,4 +201,26 @@
 
 #merced{
     height: 120px;
+}
+
+.honors{
+    display: flex;
+    background-color: #fcf3e5;
+    background-image: url("../images/background/texture.png");
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.honors-wall{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin-bottom: 40px;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, system-ui;
+}
+
+.hon{
+    padding-bottom: 10px;
 }
