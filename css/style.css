@@ -361,3 +361,28 @@
     bottom: 9px;
     cursor: default;
 }
+
+@media (max-width: 770px){
+    .footer{
+        display: flex;
+        position: relative;
+        background-color: #f9f9f5;
+        background-image: url("../images/background/texture.png");
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .recorder{
+        position: absolute;
+        display: block;
+        background-color: #CC1E42;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        right: 20px;
+        bottom: 14px;
+        cursor: default;
+    }
+}
