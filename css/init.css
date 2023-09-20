@@ -44,6 +44,12 @@ a {
     transition: ease 0.4s;
 }
 
+@media (max-width: 998px){
+    a{
+        text-decoration: underline !important;
+    }
+}
+
 p {
     margin-bottom: unset !important;
 }
