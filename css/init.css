@@ -44,7 +44,7 @@ a {
     transition: ease 0.4s;
 }
 
-@media (max-width: 998px){
+@media (max-width: 770px){
     a{
         text-decoration: underline !important;
     }
