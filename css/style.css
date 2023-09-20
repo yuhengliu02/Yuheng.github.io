@@ -205,6 +205,15 @@
     padding-bottom: 40px;
 }
 
+@media (max-width: 998px){
+    .project{
+        padding-bottom: 0;
+    }
+    .paper-title{
+        text-align: justify;
+    }
+}
+
 .experience{
     display: flex;
     background-color: #f9f9f5;
