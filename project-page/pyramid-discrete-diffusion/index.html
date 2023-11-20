@@ -58,6 +58,13 @@
             <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Code
         </a>
     </div>
+
+    <div class="paper-category">
+        <div class="circle-logo">
+            <img src="images/pyramid_logo.png" style="width: 80%; height: 80%">
+        </div>
+        <p class="category-name">Generative Models</p>
+    </div>
 </div>
 
 <div class="border-box">
@@ -163,21 +170,52 @@
     <div class="title" style="padding-bottom: 40px">
         CROSS-DATASET
     </div>
-    <img src="images/method.png" style="width: 40%">
+    <img src="images/generation_kitti.png" style="width: 50%">
     <div class="paper-contents">
         <p>
-            In our structure, there are three different scales. Scenes generated
-            by a previous scale can serve as a condition for the current scale after processing through our scale adaptive function. Furthermore, for the
-            final scale processing, the scene from the previous scale is subdivided into four sub-scenes. The final scene is reconstructed into a large
-            scene using our Scene Subdivision module.
+            The Pyramid Discrete Diffusion model shows
+            enhanced quality in scene generation after finetuning with
+            SemanticKITTI data. The fine-tuning process effectively adapts the
+            model to the dataset’s complex
+            object distributions and scene dynamics, resulting in improved results for both generation scenarios.
+            We also highlight that, despite the higher training efforts of the Discrete
+            Diffusion (DD) approach, our method outperforms DD even
+            without fine-tuning, simply by using coarse scenes from
+            SemanticKITTI. This demonstrates the strong cross-data
+            transfer capability of our approach.
         </p>
     </div>
 </div>
 
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
 
-<div class="footer">
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        INFINITE SCENE GENERATION
+    </div>
+    <img src="images/infinite_generation.png" style="width: 40%">
+    <div class="paper-contents">
+        <p>
+            Figure 7 demonstrates our
+            model’s ability to generate large-scale, coarse-grained
+            scenes beyond standard dataset dimensions. This initial
+            scale precedes a refinement process that adds detail to these
+            expansive outdoor scenes. Our model produces continuous cityscapes without needing additional inputs.
+            Using our method, it is possible to generate infinite scenes. The figure
+            shows the generation process in scales: beginning with a
+            coarse scene, it focuses on refining a segment into detailed
+            3D scenes.
+        </p>
+    </div>
+</div>
+
+<div class="paper-footer">
     <p>This website was designed and built by our team.</p>
+    <img class="paper-visitors" alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FYuheng-SWJTU%2Fpyramid-discrete-diffusion.json&label=visitors&color=fedcba">
     <div class="recording">
+        <a href="https://clustrmaps.com/site/1bxg3"  title="Visit tracker" style="visibility: hidden"><img src="//www.clustrmaps.com/map_v2.png?d=Og4VmfLxkiWKwZivLXR_YMyiwAKOaDIW5LsDpxGUp1A&cl=ffffff" style="display: none"/></a>
     </div>
 </div>
 </body>

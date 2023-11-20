@@ -427,6 +427,7 @@
 }
 
 .paper-info{
+    position: relative;
     display: flex;
     background-color: white;
     width: 100%;
@@ -523,4 +524,52 @@
     color: #37393d;
     text-align: left;
     margin-bottom: 30px;
+}
+
+.paper-footer{
+    display: flex;
+    position: relative;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-color: rgba(0,0,0,0.12);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.paper-visitors{
+    position: absolute;
+    right: 20px;
+}
+
+.paper-category{
+    display: flex;
+    width: 160px;
+    height: 30px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    border-radius: 15px;
+    align-items: center;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+}
+
+.circle-logo{
+    display: flex;
+    width: 26px;
+    height: 26px;
+    background-color: #37393d;
+    border-radius: 20px;
+    position: absolute;
+    left: 2px;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-name{
+    position: absolute;
+    left: 35px;
 }
