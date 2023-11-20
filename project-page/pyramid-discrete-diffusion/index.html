@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--    icon-->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <!--    css files-->
+    <link href="../../css/init.css" type="text/css" rel="stylesheet">
+    <link href="../../css/style.css" type="text/css" rel="stylesheet">
+    <!--    title-->
+    <title>Pyramid Diffusion for Fine 3D Large Scene Generation</title>
+    <!--    description-->
+    <meta name="Description"
+          content="Official website of the research project 'Pyramid Diffusion for Fine 3D Large Scene Generation'.">
+    <!--    keywords-->
+    <meta name="Keywords"
+          content="Yuheng Liu, Xinke Li, Lu Qi, Xueting Li, Chongshou Li, Ming-Hsuan Yang, Southwest Jiaotong University, University of Leeds, The University of California, Merced, NVIDIA, Google Research, National University of Singapore, diffusion model, discrete diffusion mode, 3D scene generation, pyramid diffusion, cross-dataset, infinite scene generation.">
+    <script src="https://kit.fontawesome.com/766b4d68b2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="paper-info">
+    <div class="paper-title-new" style="font-size: 38px">
+        Pyramid Diffusion for Fine 3D Large Scene Generation
+    </div>
+    <div class="paper-authors-new">
+        <a href="../../index.html"><b><u>Yuheng Liu</u></b></a><sup>1,2</sup><b>,&nbsp;</b>
+        <a href="https://shinke-li.github.io/"><b><u>Xinke Li</u></b></a><sup>3</sup><b>,&nbsp;</b>
+        <a href="https://sunshineatnoon.github.io/"><b><u>Xueting Li</u></b></a><sup>4</sup><b>,&nbsp;</b>
+        <a href="http://luqi.info/"><b><u>Lu Qi</u></b></a><sup>5</sup><b>,&nbsp;</b>
+        <a href="https://scholar.google.com.sg/citations?user=pQsr70EAAAAJ&hl=en"><b><u>Chongshou Li</u></b></a><sup>1</sup><b>,&nbsp;</b>
+        <a href="https://scholar.google.com/citations?user=p9-ohHsAAAAJ&hl=en&oi=ao"><b><u>Ming-Hsuan Yang</u></b></a><sup>5,6</sup>
+    </div>
+    <div class="paper-institutions" align="center">
+        <sup>1</sup>Southwest Jiaotong University, <sup>2</sup>University of Leeds, <sup>3</sup>National University of Singapore, <sup>4</sup>NVIDIA
+        <br>
+        <sup>5</sup>The University of California, Merced, <sup>6</sup>Google Research
+    </div>
+    <div class="paper-link-group">
+        <a href="" class="paper-sub-link" style="width: 100px">
+            <img src="icons/arxiv-logomark-small.svg" style="width: 16px; height: 16px">&nbsp;&nbsp;Arxiv
+        </a>
+        <a href="" class="paper-sub-link" style="width: 140px">
+            <i class="fas fa-file-pdf"></i>&nbsp;&nbsp;Paper (4MB)
+        </a>
+        <a href="" class="paper-sub-link" style="width: 150px">
+            <i class="fas fa-file-pdf"></i>&nbsp;&nbsp;Paper (39MB)
+        </a>
+        <a href="" class="paper-sub-link" style="width: 100px">
+            <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Code
+        </a>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        ABSTRACT
+    </div>
+    <img src="images/teaser.png" style="width: 40%">
+    <div class="paper-contents">
+        <p>
+            Directly transferring the 2D techniques to 3D scene generation is challenging due to significant resolution reduction and the scarcity of comprehensive real-world 3D scene datasets. To address these issues, our work introduces the Pyramid Discrete Diffusion model (PDD) for 3D scene generation. This novel approach employs a multi-scale model capable of progressively generating high-quality 3D scenes from coarse to fine. In this way, the PDD can generate high-quality scenes within limited resource constraints and does not require additional data sources. To the best of our knowledge, we are the first to adopt the simple but effective coarse-to-fine strategy for 3D large scene generation. Our experiments, covering both unconditional and conditional generation, have yielded impressive results, showcasing the model's effectiveness and robustness in generating realistic and detailed 3D scenes. Our code will be available to the public soon.
+        </p>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        METHOD
+    </div>
+    <img src="images/method.png" style="width: 40%">
+    <div class="paper-contents">
+        <p>
+            In our structure, there are three different scales. Scenes generated
+            by a previous scale can serve as a condition for the current scale after processing through our scale adaptive function. Furthermore, for the
+            final scale processing, the scene from the previous scale is subdivided into four sub-scenes. The final scene is reconstructed into a large
+            scene using our Scene Subdivision module.
+        </p>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        RESULTS
+    </div>
+    <div class="paper-sub-title">
+        Unconditional Generation on CarlaSC
+    </div>
+    <img src="images/unconditional_generation_carla.png" style="width: 40%">
+    <div class="paper-contents">
+        <p>
+            We compare with two baseline models – DiscreteDiff and
+            LatentDiff and show synthesis from our models with different scales. Our method produces more diverse scenes compared to the
+            baseline models. Furthermore, with more levels, our model can synthesize scenes with more intricate details.
+        </p>
+    </div>
+
+    <div class="paper-sub-title" style="margin-top: 40px">
+        Conditional Generation on CarlaSC
+    </div>
+    <img src="images/conditional_generation_carla.png" style="width: 40%">
+    <div class="paper-contents">
+        <p>
+            We conduct the comparison on conditioned
+            3D scene generation. We benchmark our method against the
+            discrete diffusion conditioned on unlabeled point clouds
+            and the same coarse scenes. Results in the figure
+            present the impressive results of our conditional generation
+            comparison. Despite the informative condition of the point cloud,
+            our method can still outperform it.
+        </p>
+    </div>
+
+    <div class="paper-sub-title" style="margin-top: 40px">
+        Computational Efficiency
+    </div>
+    <img src="images/computational_efficiency.png" style="width: 25%">
+    <div class="paper-contents">
+        <p>
+            The figure depicts the GPU
+            training time and memory requirements for our PDD on
+            identical configurations. Using a logarithmic scale for training
+            time emphasizes the efficiency gains of our method. The
+            initial training stage, PDD (<i>s</i><sub>1</sub>), requires substantially less
+            time—up to 100 times less—compared to training the full
+            DD model. It also minimizes GPU memory usage, which
+            broadens the potential for deployment on hardware with
+            lower specifications. This enhanced efficiency extends to
+            subsequent scales, with the final scale, PDD (<i>s</i><sub>2</sub>),
+            only necessitating retraining at smaller scales. Such an approach
+            significantly cuts down on total training time and memory
+            usage, highlighting the pragmatic benefits of our pyramid
+            training architecture.
+        </p>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        CROSS-DATASET
+    </div>
+    <img src="images/method.png" style="width: 40%">
+    <div class="paper-contents">
+        <p>
+            In our structure, there are three different scales. Scenes generated
+            by a previous scale can serve as a condition for the current scale after processing through our scale adaptive function. Furthermore, for the
+            final scale processing, the scene from the previous scale is subdivided into four sub-scenes. The final scene is reconstructed into a large
+            scene using our Scene Subdivision module.
+        </p>
+    </div>
+</div>
+
+
+<div class="footer">
+    <p>This website was designed and built by our team.</p>
+    <div class="recording">
+    </div>
+</div>
+</body>
+</html>
