@@ -593,6 +593,11 @@
     white-space: pre;
 }
 
+.paper-video{
+    width: 800px;
+    height: 451px;
+}
+
 @media (max-width: 770px) {
     .paper-title-new{
         font-size: 18px;
@@ -729,5 +734,10 @@
         position: absolute;
         right: 39%;
         bottom: 60px;
+    }
+
+    .paper-video{
+        width: 350px;
+        height: 206px;
     }
 }
