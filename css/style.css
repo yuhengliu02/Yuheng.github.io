@@ -318,6 +318,10 @@
     height: 120px;
 }
 
+#tamu{
+    height: 120px;
+}
+
 @media (max-width: 770px) {
     .experience{
         padding-bottom: 0;
@@ -336,6 +340,10 @@
     }
 
     #merced{
+        height: 20%;
+    }
+
+    #tamu{
         height: 20%;
     }
 
