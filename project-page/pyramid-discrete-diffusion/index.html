@@ -14,6 +14,7 @@
     <!--    css files-->
     <link href="../init.css" type="text/css" rel="stylesheet">
     <link href="../style.css" type="text/css" rel="stylesheet">
+    <link href="models.css" type="text/css" rel="stylesheet">
     <!--    title-->
     <title>[ECCV 24] Pyramid Diffusion for Fine 3D Large Scene Generation</title>
     <!--    description-->
@@ -23,6 +24,11 @@
     <meta name="Keywords"
           content="ECCV 24, Yuheng Liu, Xinke Li, Lu Qi, Xueting Li, Chongshou Li, Ming-Hsuan Yang, Southwest Jiaotong University, University of Leeds, The University of California, Merced, NVIDIA, Google Research, National University of Singapore, diffusion model, discrete diffusion mode, 3D scene generation, pyramid diffusion, cross-dataset, infinite scene generation.">
     <script src="https://kit.fontawesome.com/766b4d68b2.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 
 <body>
@@ -56,17 +62,20 @@
         <a href="https://arxiv.org/abs/2311.12085" class="paper-sub-link" target="_blank" style="width: 100px">
             <img src="icons/arxiv-logomark-small.svg" style="width: 16px; height: 16px">&nbsp;&nbsp;Arxiv
         </a>
-        <a href="papers/pyramid_discrete_diffsion_for_fine_3d_large_scene_generation.pdf" class="paper-sub-link" target="_blank" style="width: 140px">
-            <i class="fas fa-file-pdf"></i>&nbsp;&nbsp;Paper (4MB)
+        <a href="papers/Pyramid_Diffusion_for_Fine_3D_Large_Scene_Generation.pdf" class="paper-sub-link" target="_blank" style="width: 100px">
+            <i class="fas fa-file-pdf"></i>&nbsp;&nbsp;Paper
         </a>
-        <a href="papers/high_resolution_pyramid_discrete_diffusion_for_fine_3d_large_scene_generation.pdf" class="paper-sub-link" target="_blank" style="width: 150px">
-            <i class="fas fa-file-pdf"></i>&nbsp;&nbsp;Paper (39MB)
+        <a href="papers/Supplementary_Pyramid_Diffusion_for_Fine_3D_Large_Scene_Generation.pdf" class="paper-sub-link" target="_blank" style="width: 170px">
+            <i class="fas fa-file-pdf"></i>&nbsp;&nbsp;Supplementary
         </a>
         <a href="https://github.com/Yuheng-SWJTU/pyramid-discrete-diffusion" class="paper-sub-link" target="_blank" style="width: 100px">
             <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Code
         </a>
-        <a href="https://www.youtube.com/watch?v=g4fleCzy4EI" class="paper-sub-link" target="_blank" style="width: 100px">
+        <a href="https://www.youtube.com/watch?v=9EmUq4cnyGM" class="paper-sub-link" target="_blank" style="width: 100px">
             <i class="fa-brands fa-youtube"></i>&nbsp;&nbsp;Video
+        </a>
+        <a href="https://www.youtube.com/watch?v=9EmUq4cnyGM" class="paper-sub-link" target="_blank" style="width: 110px">
+            <i class="fa-solid fa-cube"></i>&nbsp;&nbsp;Models
         </a>
     </div>
 
@@ -166,26 +175,25 @@
     <div class="paper-sub-title" style="margin-top: 40px">
         None-overfitting Verification
     </div>
+    <img src="images/overfitting.png" style="width: 40%" class="paper-img-phone">
     <div class="paper-contents" style="margin-top: 0">
-        <div class="two-elements">
-            <div class="left-part">
-                <img src="images/overfitting.png" style="width: 65%" class="paper-img-phone">
-                <p>
-                    <b>Figure 3.</b> Contrasting Unconditional Generation / Validation Set with closest FD and SSIM scenes.
-                </p>
-            </div>
 
-            <div class="right-part" style="margin-top: 40px">
-                <img src="images/overfitting-table.png" style="width: 100%" class="paper-img-phone">
-                <p>
-                    <b>Table 2.</b> Feature L2-distance (FD) and structural similarity (SSIM) between a scene and the closest scene in the training set. We randomly selected 20 scenes and calculated the average.
-                </p>
-            </div>
-        </div>
-
+        <p>
+            <b>Figure 3.</b> Data retrieval visualization. We generate 1k scenes using PDD on CarlaSC
+            dataset, and retrieve the most similar scene in training set for each scene using SSIM
+            (SSIM=1 means identical), and plot SSIM distribution. Scenes at various percentiles
+            are displayed (red box: generated scenes; grey box: scenes in training set), those with
+            the highest 10% similarity are very similar to the training
+            set, but still not completely identical.
+        </p>
         &nbsp;
         <p>
-            The MMD and F3D metrics numerically illustrate the statistical feature distance between generated scenes and the training set. Our method achieves the lowest MMD and F3D among all baseline methods as shown in Table 1. However, we argue that this <i>does not indicate overfitting</i> to the dataset for the following reasons. First, our MMD and F3D are larger than those of the ground truth. Furthermore, we leverage two similarity metrics to search and show that a generated scene is different from its nearest neighbour in the dataset. The first metric is based on feature similarity (FD) and the other on structural similarity (SSIM). Specifically, we randomly select 20 generated scenes and identify their closest matches in the training set using the FD and SSIM metrics. The average FD and SSIM of these 20 scenes are calculated and presented in Table 2. Additionally, we apply the same methodology to the Validation Set to establish an oracle baseline. Table 2 shows that our generated scenes are comparable to the oracle baseline, verifying that our method does not overfit the training set. To further support this, we qualitatively examine two randomly selected generated scenes and one scene from the Validation Set. Figure 3 visualizes these scenes along with their closest matches in the dataset. As shown in Figure 3, the generated scenes show variation from its closest match in the dataset. This visual evidence reinforces that PDD successfully captures the distribution of the training set instead of merely memorizing it.
+            We use distribution plots, as shown in Figure 3, to validate the
+            similarity between our generated scenes and the training set. We also display
+            three pairs at different percentiles in this figure, showing that scenes with lower
+            SSIM scores differ more from their nearest matches in the training set. This
+            visual evidence reinforces that PDD effectively captures the distribution of the
+            training set instead of merely memorizing it.
         </p>
     </div>
 </div>
@@ -214,9 +222,6 @@
             Figure 4 and Figure 5 showcase our model's performance on the transferred dataset from CarlaSC to SemanticKITTI for both unconditional and conditional scene generation. The Pyramid Discrete Diffusion model shows enhanced quality in scene generation after finetuning with SemanticKITTI data, as indicated by the improved mIoU, F3D, and MMD metrics in Table 3. The fine-tuning process effectively adapts the model to the dataset's complex object distributions and scene dynamics, resulting in improved results for both generation scenarios. We also highlight that, despite the higher training effort of the Discrete Diffusion (DD) approach, our method outperforms DD even without fine-tuning, simply by using coarse scenes from SemanticKITTI. This demonstrates the strong cross-data transfer capability of our approach.
         </p>
     </div>
-
-
-
 </div>
 
 <div class="border-box">
@@ -240,19 +245,61 @@
             As a result, our model produces high-quality continuous cityscapes without relying on additional inputs. This substantially reduces the limitations of conventional datasets where only finite scenes are available, paving the path to provide data for downstream tasks such as 3D scene segmentation.
         </p>
     </div>
+
+    <div class="paper-sub-title" style="margin-top: 40px">
+        Demo Video of Infinite Scene Generation
+    </div>
+    <video id="videoElement" class="paper-video" controls>
+        <source src="video/submit_1080_low.mp4" type="video/mp4">
+    </video>
 </div>
 
 <div class="border-box">
     <div style="height: 1px;" data-width="100%" class="divider-border"></div>
 </div>
 
-<!--<div class="paper-sub-section">-->
-<!--    <div class="title" style="padding-bottom: 40px">-->
-<!--        VIDEO-->
-<!--    </div>-->
-<!--    <iframe class="paper-video" src="https://www.youtube.com/embed/g4fleCzy4EI?si=pv6VL3qrK3mqrfvr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        GALLERY
+    </div>
+
+    <div class="warning">
+        <p class="warning-text">
+            <i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;The models are large and may cause device lag or overheating. Please confirm before enabling the display.
+        </p>
+        <button class="warning-button" id="warning-button">Display</button>
+    </div>
+
+    <div class="gallery_container">
+        <div class="container" id="container_32"><i class="fa-regular fa-eye-slash"></i></div>
+        <div class="container" id="container_64"><i class="fa-regular fa-eye-slash"></i></div>
+        <div class="container" id="container_256"><i class="fa-regular fa-eye-slash"></i></div>
+    </div>
+    <div class="gallery_container">
+        <div>
+            <p class="gallery-title">32x32x4</p>
+        </div>
+        <div>
+            <p class="gallery-title">64x64x8</p>
+        </div>
+        <div>
+            <p class="gallery-title">256x256x16</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        VIDEO
+    </div>
+    <iframe class="paper-video" width="560" height="315" src="https://www.youtube.com/embed/9EmUq4cnyGM?si=YgA6OBLWA5nG8h6D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</div>
 
 <div class="border-box">
     <div style="height: 1px;" data-width="100%" class="divider-border"></div>
@@ -263,12 +310,12 @@
     </div>
     <div class="paper-bibtex">
         <code>
-@article{liu2023pyramid,
-         title={Pyramid Diffusion for Fine 3D Large Scene Generation},
-         author={Yuheng Liu and Xinke Li and Xueting Li and Lu Qi and Chongshou Li and Ming-Hsuan Yang},
-         journal={arXiv preprint arXiv:2311.12085},
-         year={2023}
-}
+@article{liu2024pyramiddiffusionfine3d,
+            title={Pyramid Diffusion for Fine 3D Large Scene Generation},
+            author={Yuheng Liu and Xinke Li and Xueting Li and Lu Qi and Chongshou Li and Ming-Hsuan Yang},
+            year={2024},
+            booktitle={arXiv preprint arXiv:2311.12085}
+            }
         </code>
     </div>
 </div>
@@ -280,5 +327,193 @@
         <a href="https://clustrmaps.com/site/1bxg3"  title="Visit tracker" style="visibility: hidden"><img src="//www.clustrmaps.com/map_v2.png?d=Og4VmfLxkiWKwZivLXR_YMyiwAKOaDIW5LsDpxGUp1A&cl=ffffff" style="display: none"/></a>
     </div>
 </div>
+
 </body>
+
+<script>
+    var renderers = [];
+
+    function init(containerId, objFile, mtlFile) {
+        // scene
+        var container = document.getElementById(containerId);
+        var container_size = container.clientWidth;
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+
+        // camera
+        var camera = new THREE.PerspectiveCamera(75, 1, 0.1, 500);
+        camera.position.set(8, 10, 3);
+
+        // renderer
+        var renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(container_size, container_size);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        container.appendChild(renderer.domElement);
+
+        // 控制器
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+        // 环境光
+        const ambientLight = new THREE.AmbientLight(0x404040, 2.5);
+        scene.add(ambientLight);
+
+        const light = new THREE.PointLight(0xffffff, 0.5, 100);
+        light.position.set(10, 10, 10);
+        light.castShadow = true;
+        scene.add(light);
+
+        light.shadow.mapSize.width = 1024;
+        light.shadow.mapSize.height = 1024;
+        light.shadow.camera.near = 0.5;
+        light.shadow.camera.far = 500;
+        light.shadow.bias = -0.001;
+
+        // load model
+        const mtlLoader = new THREE.MTLLoader();
+        mtlLoader.load(mtlFile, function(materials) {
+            materials.preload();
+
+            const objLoader = new THREE.OBJLoader();
+            objLoader.setMaterials(materials);
+            objLoader.load(objFile, function(object) {
+                object.traverse(function(child) {
+                    if (child.isMesh) {
+                        child.material.side = THREE.DoubleSide;
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                    }
+                });
+                scene.add(object);
+            });
+        });
+
+        window.addEventListener('resize', function() {
+            var container_size = container.clientWidth;
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }, false);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        renderers.push({ renderer, container, scene, camera, controls });
+    }
+
+    function disposeRenderers() {
+        renderers.forEach(({ renderer, container, scene, camera, controls }) => {
+            renderer.dispose();
+            controls.dispose();
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+            scene.traverse(function(object) {
+                if (object.isMesh) {
+                    object.geometry.dispose();
+                    if (Array.isArray(object.material)) {
+                        object.material.forEach(cleanMaterial);
+                    } else {
+                        cleanMaterial(object.material);
+                    }
+                }
+            });
+        });
+        renderers = [];
+    }
+
+    function cleanMaterial(material) {
+        material.dispose();
+        // Dispose textures if they exist
+        for (const key in material) {
+            if (material[key] && material[key].isTexture) {
+                material[key].dispose();
+            }
+        }
+    }
+
+    document.getElementById('warning-button').addEventListener('click', function() {
+        const button = this;
+        const warningText = document.querySelector('.warning-text');
+        const containers = document.querySelectorAll('.container');
+        const warningDiv = document.querySelector('.warning');
+
+        if (button.textContent === 'Display') {
+            // Update button and warning styles
+            button.textContent = 'Hide';
+            button.classList.add('active');
+            button.style.width = '100px';
+            button.style.backgroundColor = 'rgba(213, 80, 63, 0.5)';
+            button.style.borderRadius = '10px';
+            button.style.color = '#8a1c0a';
+            button.addEventListener('mouseover', function() {
+                button.style.backgroundColor = 'rgba(213, 80, 63, 0.45)';
+                button.style.color = '#88291a';
+            });
+            button.addEventListener('mouseout', function() {
+                button.style.backgroundColor = 'rgba(213, 80, 63, 0.5)';
+                button.style.color = '#8a1c0a';
+            });
+
+            warningDiv.style.backgroundColor = 'rgba(213, 80, 63, 0.45)';
+            warningDiv.style.borderColor = '#d5503f';
+            warningDiv.style.color = '#8a1c0a';
+
+            warningText.innerHTML = '<i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;Rendering models for an extended period may cause your device to overheat or become unresponsive.';
+
+            containers.forEach(container => {
+                container.classList.add('modified');
+                const icon = container.querySelector('.fa-eye-slash');
+                if (icon) {
+                    container.removeChild(icon);
+                }
+            });
+
+            init('container_32', 'models/01_32.obj', 'models/01_32.mtl');
+            init('container_64', 'models/01_64.obj', 'models/01_64.mtl');
+            init('container_256', 'models/01_256.obj', 'models/01_256.mtl');
+
+        } else {
+            // button.textContent = 'Display';
+            // button.classList.remove('active');
+            // button.style.width = '100px';
+            // button.style.backgroundColor = '#F2BF42';
+            // button.style.borderRadius = '10px';
+            // button.style.color = '#886704';
+            // button.addEventListener('mouseover', function() {
+            //     button.style.backgroundColor = 'rgba(242, 191, 66, 0.81)';
+            //     button.style.color = '#a47e07';
+            // });
+            // button.addEventListener('mouseout', function() {
+            //     button.style.backgroundColor = '#F2BF42';
+            //     button.style.color = '#886704';
+            // });
+            //
+            // warningDiv.style.backgroundColor = 'rgba(242, 191, 66, 0.46)';
+            // warningDiv.style.borderColor = '#F2BF42';
+            // warningDiv.style.color = '#886704';
+            //
+            // warningText.innerHTML = '<i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;The models are large and may cause device lag or overheating. Please confirm before enabling the display.';
+            //
+            // containers.forEach(container => {
+            //     container.classList.remove('modified');
+            //     if (!container.querySelector('.fa-eye-slash')) {
+            //         const icon = document.createElement('i');
+            //         icon.className = 'fa-regular fa-eye-slash';
+            //         container.appendChild(icon);
+            //     }
+            // });
+            disposeRenderers()
+
+
+            // refresh the page:
+            location.reload();
+        }
+    });
+</script>
 </html>
