@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--    icon-->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <!--    css files-->
+    <link href="../init.css" type="text/css" rel="stylesheet">
+    <link href="../style.css" type="text/css" rel="stylesheet">
+    <!--    title-->
+    <title>[ECCV 24] Pyramid Diffusion for Fine 3D Large Scene Generation</title>
+    <!--    description-->
+    <meta name="Description"
+          content="[ECCV 24] Official website of the research project 'Pyramid Diffusion for Fine 3D Large Scene Generation'.">
+    <!--    keywords-->
+    <meta name="Keywords"
+          content="ECCV 24, Yuheng Liu, Xinke Li, Lu Qi, Xueting Li, Chongshou Li, Ming-Hsuan Yang, Southwest Jiaotong University, University of Leeds, The University of California, Merced, NVIDIA, Google Research, National University of Singapore, diffusion model, discrete diffusion mode, 3D scene generation, pyramid diffusion, cross-dataset, infinite scene generation.">
+    <script src="https://kit.fontawesome.com/766b4d68b2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="paper-info">
+    <div class="paper-title-new" style="font-size: 38px">
+        Pyramid Diffusion for Fine 3D Large Scene Generation
+    </div>
+    <div class="paper-authors-new">
+        <div><a href="../../index.html"><b><u>Yuheng Liu</u></b></a><sup>1,2</sup><b>,&nbsp;</b></div>
+        <div><a href="https://shinke-li.github.io/"><b><u>Xinke Li</u></b></a><sup>3</sup><b>,&nbsp;</b></div>
+        <div><a href="https://sunshineatnoon.github.io/"><b><u>Xueting Li</u></b></a><sup>4</sup><b>,&nbsp;</b></div>
+        <div><a href="http://luqi.info/"><b><u>Lu Qi</u></b></a><sup>5</sup><b>,&nbsp;</b></div>
+        <div><a href="https://scholar.google.com.sg/citations?user=pQsr70EAAAAJ&hl=en"><b><u>Chongshou Li</u></b></a><sup>1</sup><b>,&nbsp;</b></div>
+        <div><a href="https://scholar.google.com/citations?user=p9-ohHsAAAAJ&hl=en&oi=ao"><b><u>Ming-Hsuan Yang</u></b></a><sup>5,6</sup></div>
+    </div>
+    <div class="paper-institutions" align="center">
+        <div class="paper-sub-institute">
+            <div><sup>1</sup>Southwest Jiaotong University,&nbsp;
+            </div><div><sup>2</sup>University of Leeds,&nbsp;</div>
+            <div><sup>3</sup>City University of HongKong,&nbsp;</div>
+        </div>
+        <div class="paper-sub-institute">
+            <div><sup>4</sup>NVIDIA,&nbsp;</div>
+            <div><sup>5</sup>The University of California, Merced,&nbsp;</div>
+            <div><sup>6</sup>Yonsei University</div>
+        </div>
+
+    </div>
+    <div class="paper-link-group">
+        <a href="https://arxiv.org/abs/2311.12085" class="paper-sub-link" target="_blank" style="width: 100px">
+            <img src="icons/arxiv-logomark-small.svg" style="width: 16px; height: 16px">&nbsp;&nbsp;Arxiv
+        </a>
+        <a href="papers/pyramid_discrete_diffsion_for_fine_3d_large_scene_generation.pdf" class="paper-sub-link" target="_blank" style="width: 140px">
+            <i class="fas fa-file-pdf"></i>&nbsp;&nbsp;Paper (4MB)
+        </a>
+        <a href="papers/high_resolution_pyramid_discrete_diffusion_for_fine_3d_large_scene_generation.pdf" class="paper-sub-link" target="_blank" style="width: 150px">
+            <i class="fas fa-file-pdf"></i>&nbsp;&nbsp;Paper (39MB)
+        </a>
+        <a href="https://github.com/Yuheng-SWJTU/pyramid-discrete-diffusion" class="paper-sub-link" target="_blank" style="width: 100px">
+            <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Code
+        </a>
+        <a href="https://www.youtube.com/watch?v=g4fleCzy4EI" class="paper-sub-link" target="_blank" style="width: 100px">
+            <i class="fa-brands fa-youtube"></i>&nbsp;&nbsp;Video
+        </a>
+    </div>
+
+    <div class="paper-category">
+        <div class="circle-logo">
+            <img src="images/pyramid_logo.png" style="width: 80%; height: 80%">
+        </div>
+        <p class="category-name">Generative Models</p>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        ABSTRACT
+    </div>
+    <img src="images/teaser.png" style="width: 40%" class="paper-img-phone">
+    <div class="paper-contents">
+        <p>
+            Diffusion models have shown remarkable results in generating 2D images and small-scale 3D objects. However, their application to the synthesis of large-scale 3D scenes has been rarely explored. This is mainly due to the inherent complexity and bulky size of 3D scenery data, particularly outdoor scenes, and the limited availability of comprehensive real-world datasets, which makes training a stable scene diffusion model challenging. In this work, we explore how to effectively generate large-scale 3D scenes using the coarse-to-fine paradigm. We introduce a framework, the Pyramid Discrete Diffusion model (PDD), which employs scale-varied diffusion models to progressively generate high-quality outdoor scenes. Experimental results of PDD demonstrate our successful exploration in generating 3D scenes both unconditionally and conditionally. We further showcase the data compatibility of the PDD model, due to its multi-scale architecture: a PDD model trained on one dataset can be easily fine-tuned with another dataset. The source codes and trained models will be made available to the public.
+        </p>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        METHOD
+    </div>
+    <img src="images/method.png" style="width: 40%" class="paper-img-phone">
+    <div class="paper-contents">
+        <p>
+            In our structure, there are three different scales. Scenes generated
+            by a previous scale can serve as a condition for the current scale after processing through our scale adaptive function. Furthermore, for the
+            final scale processing, the scene from the previous scale is subdivided into four sub-scenes. The final scene is reconstructed into a large
+            scene using our Scene Subdivision module.
+        </p>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        RESULTS
+    </div>
+    <img src="images/table1.png" style="width: 40%" class="paper-img-phone">
+    <div class="paper-contents" style="margin-bottom: 40px">
+        <p>
+            <b>Table 1. Comparison of various diffusion models on 3D semantic scene generation of CarlaSC.</b> DiscreteDiff, LatentDiff, and P-DiscreteDiff refer to the original discrete diffusion, latent discrete diffusion, and our approach, respectively. Conditioned models work based on the context of unlabeled point clouds or the coarse version of the ground truth scene. A higher <i>Segmentation Metric</i> value is better, indicating semantic consistency. A lower <i>Feature-based Metric</i> value is preferable, representing closer proximity to the original dataset. The brackets with <i>V</i> represent voxel-based network and <i>P</i> represent point-based network.
+        </p>
+    </div>
+    <div class="paper-sub-title">
+        Unconditional Generation on CarlaSC
+    </div>
+    <img src="images/unconditional_generation_carla.png" style="width: 40%" class="paper-img-phone">
+    <div class="paper-contents">
+        <p>
+            <b>Figure 1.</b> We compare with two baseline models – DiscreteDiff and
+            LatentDiff and show synthesis from our models with different scales. Our method produces more diverse scenes compared to the
+            baseline models. Furthermore, with more levels, our model can synthesize scenes with more intricate details.
+        </p>
+        &nbsp;
+        <p>
+            We compare our approach with two baselines, the original Discrete Diffusion and the Latent Diffusion. The result reported in Table 1 demonstrates the notable performance of our method across all metrics in both unconditional and conditional settings in comparable computational resources with existing method. Our proposed method demonstrates a notable advantage in segmentation tasks, especially when it reaches around 70% mIoU for SparseUNet, which reflects its ability to generate scenes with accurate semantic coherence.  We also provide visualizations of different model results in Figure 1, where the proposed method demonstrates better performance in detail generation and scene diversity for random 3D scene generations.
+        </p>
+    </div>
+
+    <div class="paper-sub-title" style="margin-top: 40px">
+        Conditional Generation on CarlaSC
+    </div>
+    <img src="images/conditional_generation_carla.png" style="width: 40%" class="paper-img-phone">
+    <div class="paper-contents">
+        <p>
+            <b>Figure 2.</b> We conduct the comparison on conditioned
+            3D scene generation. We benchmark our method against the
+            discrete diffusion conditioned on unlabeled point clouds
+            and the same coarse scenes. Results in the figure
+            present the impressive results of our conditional generation
+            comparison. Despite the informative condition of the point cloud,
+            our method can still outperform it.
+        </p>
+        &nbsp;
+        <p>
+            Additionally, we conduct the comparison on conditioned 3D scene generation. We benchmark our method against the discrete diffusion conditioned on unlabeled point clouds and the same coarse scenes. Results in Table 1 and Figure 2 present the impressive results of our conditional generation comparison.  It is also observed that the point cloud-based model can achieve decent performance on F3D and MMD, which could be caused by 3D point conditions providing more structural information about the scene than the coarse scene. Despite the informative condition of the point cloud, our method can still outperform it across most metrics.
+        </p>
+    </div>
+
+    <div class="paper-sub-title" style="margin-top: 40px">
+        None-overfitting Verification
+    </div>
+    <div class="paper-contents" style="margin-top: 0">
+        <div class="two-elements">
+            <div class="left-part">
+                <img src="images/overfitting.png" style="width: 65%" class="paper-img-phone">
+                <p>
+                    <b>Figure 3.</b> Contrasting Unconditional Generation / Validation Set with closest FD and SSIM scenes.
+                </p>
+            </div>
+
+            <div class="right-part" style="margin-top: 40px">
+                <img src="images/overfitting-table.png" style="width: 100%" class="paper-img-phone">
+                <p>
+                    <b>Table 2.</b> Feature L2-distance (FD) and structural similarity (SSIM) between a scene and the closest scene in the training set. We randomly selected 20 scenes and calculated the average.
+                </p>
+            </div>
+        </div>
+
+        &nbsp;
+        <p>
+            The MMD and F3D metrics numerically illustrate the statistical feature distance between generated scenes and the training set. Our method achieves the lowest MMD and F3D among all baseline methods as shown in Table 1. However, we argue that this <i>does not indicate overfitting</i> to the dataset for the following reasons. First, our MMD and F3D are larger than those of the ground truth. Furthermore, we leverage two similarity metrics to search and show that a generated scene is different from its nearest neighbour in the dataset. The first metric is based on feature similarity (FD) and the other on structural similarity (SSIM). Specifically, we randomly select 20 generated scenes and identify their closest matches in the training set using the FD and SSIM metrics. The average FD and SSIM of these 20 scenes are calculated and presented in Table 2. Additionally, we apply the same methodology to the Validation Set to establish an oracle baseline. Table 2 shows that our generated scenes are comparable to the oracle baseline, verifying that our method does not overfit the training set. To further support this, we qualitatively examine two randomly selected generated scenes and one scene from the Validation Set. Figure 3 visualizes these scenes along with their closest matches in the dataset. As shown in Figure 3, the generated scenes show variation from its closest match in the dataset. This visual evidence reinforces that PDD successfully captures the distribution of the training set instead of merely memorizing it.
+        </p>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        CROSS-DATASET
+    </div>
+    <img src="images/generation_kitti.png" style="width: 50%" class="paper-img-phone">
+    <div class="paper-contents" style="margin-top: 0; margin-bottom: 40px">
+        <p>
+            <b>Figure 4. and 5.</b> SemanticKITTI unconditional and conditional generation. <i>FT</i> stands for finetuning pre-trained model from CarlaSC.
+        </p>
+    </div>
+    <img src="images/cross-data.png" style="width: 30%" class="paper-img-phone">
+    <div class="paper-contents" style="margin-top: 0; margin-bottom: 40px">
+        <p>
+            <b>Table 3. </b> Generation results on SemanticKITTI. Setting <i>Finetuned Scales</i> to None stands for train-from-scratch and others stand for finetuning corresponding pre-trained CarlaSC model.
+        </p>
+        &nbsp;
+        <p>
+            Figure 4 and Figure 5 showcase our model's performance on the transferred dataset from CarlaSC to SemanticKITTI for both unconditional and conditional scene generation. The Pyramid Discrete Diffusion model shows enhanced quality in scene generation after finetuning with SemanticKITTI data, as indicated by the improved mIoU, F3D, and MMD metrics in Table 3. The fine-tuning process effectively adapts the model to the dataset's complex object distributions and scene dynamics, resulting in improved results for both generation scenarios. We also highlight that, despite the higher training effort of the Discrete Diffusion (DD) approach, our method outperforms DD even without fine-tuning, simply by using coarse scenes from SemanticKITTI. This demonstrates the strong cross-data transfer capability of our approach.
+        </p>
+    </div>
+
+
+
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px" id="special-title-01">
+        INFINITE SCENE GENERATION
+    </div>
+    <img src="images/infinite_generation.png" style="width: 40%" class="paper-img-phone">
+    <div class="paper-contents">
+        <p>
+            <b>Figure 6. Infinite Scene Generation.</b> Thanks to the pyramid representation, PDD can be readily applied for unbounded scene generation. This involves the initial efficient synthesis of a large-scale coarse 3D scene, followed by subsequent refinement at higher levels.
+        </p>
+        &nbsp;
+        <p>
+            Figure 6 visualizes the process of generating large-scale infinite scenes using our PDD model.
+            We first use the small scale model to swiftly generate a coarse infinite 3D scene, as shown at the bottom level in Figure 6.
+            Subsequently, we leverage models at larger scales to progressively add in more intricate details in the scene (see the middle and top level in Figure 6) to improve its realism.
+            As a result, our model produces high-quality continuous cityscapes without relying on additional inputs. This substantially reduces the limitations of conventional datasets where only finite scenes are available, paving the path to provide data for downstream tasks such as 3D scene segmentation.
+        </p>
+    </div>
+</div>
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+
+<!--<div class="paper-sub-section">-->
+<!--    <div class="title" style="padding-bottom: 40px">-->
+<!--        VIDEO-->
+<!--    </div>-->
+<!--    <iframe class="paper-video" src="https://www.youtube.com/embed/g4fleCzy4EI?si=pv6VL3qrK3mqrfvr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="border-box">
+    <div style="height: 1px;" data-width="100%" class="divider-border"></div>
+</div>
+<div class="paper-sub-section">
+    <div class="title" style="padding-bottom: 40px">
+        BibTex
+    </div>
+    <div class="paper-bibtex">
+        <code>
+@article{liu2023pyramid,
+         title={Pyramid Diffusion for Fine 3D Large Scene Generation},
+         author={Yuheng Liu and Xinke Li and Xueting Li and Lu Qi and Chongshou Li and Ming-Hsuan Yang},
+         journal={arXiv preprint arXiv:2311.12085},
+         year={2023}
+}
+        </code>
+    </div>
+</div>
+
+<div class="paper-footer">
+    <p>This website was designed and built by our team.</p>
+    <img class="paper-visitors" alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FYuheng-SWJTU%2Fpyramid-discrete-diffusion.json&label=visitors&color=fedcba">
+    <div class="recording">
+        <a href="https://clustrmaps.com/site/1bxg3"  title="Visit tracker" style="visibility: hidden"><img src="//www.clustrmaps.com/map_v2.png?d=Og4VmfLxkiWKwZivLXR_YMyiwAKOaDIW5LsDpxGUp1A&cl=ffffff" style="display: none"/></a>
+    </div>
+</div>
+</body>
+</html>

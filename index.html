@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" 
+        crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/7c14ef5969.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>Yuheng Liu</title>
+    <!--    description-->
+    <meta name="Description"
+          content="My profile website.">
+    <!--    keywords-->
+    <meta name="Keywords"
+          content="TAMU, Texas A&M University, SWJTU, Southwest Jiaotong University,
+          Computer Science, UC Merced, Researcher, CV, segmentation, diffusion model">
+</head>
+<body>
+    <div class="navbar navbar-expand-lg bg-body-tertiary p-0">
+        <a class="navbar-brand mx-3 p-2" href="#" style="font-size: 1.3rem; font-family: 'Quicksand'; margin-bottom: 3px">
+            <!-- <img src="cilix_logo.jpg" alt="Coming Soon!" class="logo" /> -->
+            cilix
+        </a>
+        <div>
+            <button class="navbar-toggler" type="button" onclick="toggleMenu()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div id="navbarMenu" class="mobile-hide">
+            <div class="nav navbar-nav" onclick="toggleMenu()">
+                <a href="#home" class="nav-link mx-3 nav-item-custom active" data-bs-toggle="tab" aria-controls="home" aria-selected="true" onclick="openInfoBanner()">
+                    <span>Home</span>
+                    <i class="bi bi-arrow-right hide"></i>
+                </a>
+                <a href="#research" class="nav-link mx-3 nav-item-custom" data-bs-toggle="tab" aria-controls="research" aria-selected="false" onclick="toggleInfoBanner()">
+                    <span>Research</span>
+                    <i class="bi bi-arrow-right hide"></i>
+                </a>
+<!--                <a href="#education" class="nav-link mx-3 nav-item-custom" data-bs-toggle="tab" aria-controls="education" aria-selected="false" onclick="toggleInfoBanner()">-->
+<!--                    <span>Education</span>-->
+<!--                    <i class="bi bi-arrow-right hide"></i>-->
+<!--                </a>-->
+                <a href="#experience" class="nav-link mx-3 nav-item-custom" data-bs-toggle="tab" aria-controls="experience" aria-selected="false" onclick="toggleInfoBanner()">
+                    <span>Experience</span>
+                    <i class="bi bi-arrow-right hide"></i>
+                </a>
+                <a href='#misc' class="nav-link mx-3 nav-item-custom" data-bs-toggle="tab" aria-controls="misc" aria-selected="false" onclick="toggleInfoBanner()">
+                    <span>Misc</span>
+                    <i class="bi bi-arrow-right hide"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="m-0" id="main">
+        <div class="info-banner" id="info-banner">
+            <div class="wrapper d-flex justify-content-between m-auto px-4 py-5 align-items-center">
+                <div class="first">
+                    <h1>Yuheng Liu</h1>
+                    <h4>Texas A&M University</h4>
+                    <div class="mt-5">
+                        <a href="https://twitter.com/yuhengliu02" target="_blank">
+                            <i class="fab fa-twitter profile-info-icon"></i></a>
+                        <a href="www.linkedin.com/in/yuhengliu02" target="_blank">
+                            <i class="fab fa-linkedin profile-info-icon"></i></a>
+                        <a href="https://github.com/yuhengliu02" target="_blank">
+                            <i class="fab fa-github profile-info-icon"></i></a>
+                        <a href="https://orcid.org/0009-0001-3690-5659" target="_blank">
+                            <i class="fab fa-orcid profile-info-icon"></i></a>
+                        <a href="https://scholar.google.com/citations?user=zhiPMtoAAAAJ&hl=en&authuser=1" target="_blank">
+                            <i class="fas fa-graduation-cap profile-info-icon"></i></a>
+                        <div class="profile-email-area">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:yuhengliu@tamu.edu">yuhengliu@tamu.edu</a> & <a href="mailto:yuheng@cilix.ai">yuheng@cilix.ai</a><br/>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/avatar/yuheng_2024.png" alt="your name here" id="avatar" class="second">
+            </div>
+        </div>
+
+        <div class="row m-0 mt-4 p-0 wrapper" style="flex-grow: 1;">
+            <div class="col-md-12 col-lg-12 p-4 tab-content">
+
+                <div class="tab-pane fade show active" id="home">
+                    <div class="mb-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h4 class="m-0">About</h4>
+                        </div>
+                        <div class="collapse show" id="collapseInt">
+                            <p>
+                                I am a first-year CS Ph.D. student at
+                                <a href="https://www.tamu.edu/index.html" target="_blank"><u>Texas A&M University</u></a>, supervised by
+                                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank"><u>Prof. Wenping Wang</u></a> and
+                                <a href="https://people.tamu.edu/~xinli/" target="_blank"><u>Prof. Xin Li</u></a>.
+                                I received my B.Eng. from
+                                <a href="https://www.swjtu.edu.cn/" target="_blank"><u>Southwest Jiaotong University (CN)</u></a>
+                                and B.Sc. from <a href="https://www.leeds.ac.uk/" target="_blank"><u>University of Leeds (UK)</u></a> with First-class Degree, Outstanding Graduates of Sichuan Province and Best Bachelor Thesis in 2024.
+                                Furthermore, I’m a research intern in <a href="https://www.ucmerced.edu/" target="_blank"><u>University of California, Merced</u></a>,
+                                working with <a href="http://luqi.info/" target="_blank"><u>Dr. Lu Qi</u></a> and
+                                <a href="https://sunshineatnoon.github.io/" target="_blank"><u>Dr. Xueting Li</u></a>,
+                                under the supervision of <a href="https://scholar.google.com/citations?user=p9-ohHsAAAAJ&hl=en&oi=ao" target="_blank"><u>Prof. Ming-Hsuan Yang</u></a>.
+                                Previously, I worked with <a href="https://shinke-li.github.io/" target="_blank"><u>Prof. Xinke Li</u></a>,
+                                advised by <a href="https://scholar.google.com.sg/citations?user=pQsr70EAAAAJ&hl=en" target="_blank"><u>Prof. Chongshou Li</u></a>
+                                in SWJTU.
+                            </p>
+                            <p>
+                                My research interests mainly focus on <b>3D vision and scene generation</b>. I'm always open to discussing ideas and insights with others. If you'd like to chat, please reach out to my email.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mb-5" style="padding-bottom: 40px">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h4 class="m-0">News</h4>
+                            <button class="btn btn-light btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNews" aria-expanded="false" aria-controls="collapseNews">
+                                <i class="bi bi-arrows-collapse"></i>
+                            </button>
+                        </div>
+                        <div class="collapse show" id="collapseNews">
+
+                            <div class="news-card">
+                                <div class="row g-0">
+                                    <div class="col-md-2 news-date">
+                                        <h4 class="mb-0">2024</h4>
+                                        <h5 class="mb-0 news-date-month">July</h5>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="mb-0 text-body-secondary">
+                                            🎉 Our work Pyramid Diffusion for Fine 3D Large Scene Generation is accepted by ECCV 2024!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-card">
+                                <div class="row g-0">
+                                    <div class="col-md-2 news-date">
+                                        <h4 class="mb-0">2024</h4>
+                                        <h5 class="mb-0 news-date-month">June</h5>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="mb-0 text-body-secondary">
+                                            🥰 I graduated from SWJTU with Outstanding Graduates of Sichuan Province and Best Bachelor Thesis, and University of Leeds with First-class Degree!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-card">
+                                <div class="row g-0">
+                                    <div class="col-md-2 news-date">
+                                        <h4 class="mb-0">2024</h4>
+                                        <h5 class="mb-0 news-date-month">April</h5>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="mb-0 text-body-secondary">
+                                            🥳 I will join Prof. Wenping Wang and Prof. Xin Li's group at TAMU as a Ph.D. student this fall.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-card">
+                                <div class="row g-0">
+                                    <div class="col-md-2 news-date">
+                                        <h4 class="mb-0">2024</h4>
+                                        <h5 class="mb-0 news-date-month">February</h5>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="mb-0 text-body-secondary">
+                                            Our work 'Deep Hierarchical Learning for 3D Semantic Segmentation' is submitted. Access to our <a href="https://dhl3d.github.io/" target="_blank"><b><u>Project Page</u></b></a> for more details.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-card">
+                                <div class="row g-0">
+                                    <div class="col-md-2 news-date">
+                                        <h4 class="mb-0">2023</h4>
+                                        <h5 class="mb-0 news-date-month">November</h5>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="mb-0 text-body-secondary">
+                                            Our work 'Pyramid Diffusion for Fine 3D Large Scene Generation' is on <a href="https://arxiv.org/abs/2311.12085" target="_blank"><b><u>arXiv</u></b></a>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-card">
+                                <div class="row g-0">
+                                    <div class="col-md-2 news-date">
+                                        <h4 class="mb-0">2023</h4>
+                                        <h5 class="mb-0 news-date-month">November</h5>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="mb-0 text-body-secondary">
+                                            Our work 'Pyramid Diffusion for Fine 3D Large Scene Generation' is submitted. Access to our <a href="project-page/pyramid-discrete-diffusion" target="_blank"><b><u>Project Page</u></b></a> for more details.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-card">
+                                <div class="row g-0">
+                                    <div class="col-md-2 news-date">
+                                        <h4 class="mb-0">2023</h4>
+                                        <h5 class="mb-0 news-date-month">October</h5>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="mb-0 text-body-secondary">
+                                            Awarded a national scholarship (top 0.2% nationwide).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-card">
+                                <div class="row g-0">
+                                    <div class="col-md-2 news-date">
+                                        <h4 class="mb-0">2023</h4>
+                                        <h5 class="mb-0 news-date-month">September</h5>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="mb-0 text-body-secondary">
+                                            Ranked first in my major during my junior year.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="research">
+                    <div class="mb-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h4 class="m-0">Research & Publications</h4>
+                            <button class="btn btn-light btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRes" aria-expanded="false" aria-controls="collapseRes">
+                                <i class="bi bi-arrows-collapse"></i>
+                            </button>
+                        </div>
+                        <div class="collapse show" id="collapseRes">
+
+                            <div class="card research-card">
+                                <div class="row g-0">
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <img src="images/research-img/pyramid-discrete-diffusion.png" alt="paper image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Pyramid Diffusion for Fine 3D Large Scene Generation
+                                            </h5>
+                                            <p class="card-text">
+                                                <small class="text-body-secondary">
+                                                    <b>Yuheng Liu</b>, Xinke Li, Xueting Li, Lu Qi, Chongshou Li, Ming-Hsuan Yang
+                                                    <br/> <b>ECCV 2024</b>
+                                                </small>
+                                            </p>
+                                            <p class="card-text">
+                                                <small>
+                                                    This work uses a coarse-to-fine approach with scale-varied diffusion models to generate high-quality outdoor scenes. It successfully generates 3D scenes both unconditionally and conditionally, and it allows for easy fine-tuning across different datasets and generating infinite scenes.
+                                                </small>
+                                            </p>
+
+                                            <a href="https://arxiv.org/abs/2311.12085" target="_blank">
+                                                <button class="btn btn-arxiv btn-research paper-btn"><img src="images/icons/arxiv-logomark-small.svg"> arXiv</button></a>
+
+                                            <a href="https://github.com/yuhengliu02/pyramid-discrete-diffusion" target="_blank">
+                                                <button class="btn btn-dark btn-research paper-btn"><i class="bi bi-github"></i> Code</button></a>
+
+                                            <a href="project-page/pyramid-discrete-diffusion/" target="_blank">
+                                                <button class="btn btn-primary btn-research paper-btn"><i class="bi bi-globe-americas"></i> Website</button></a>
+
+                                            <a href="https://www.youtube.com/watch?v=9EmUq4cnyGM" target="_blank">
+                                                <button class="btn btn-danger btn-research paper-btn"><i class="bi bi-youtube"></i> Keynote</button></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="card research-card">
+                                <div class="row g-0">
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <img src="images/research-img/deep-hier-learning.jpg" alt="paper image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Deep Hierarchical Learning for 3D Semantic Segmentation
+                                            </h5>
+                                            <p class="card-text">
+                                                <small class="text-body-secondary">
+                                                    Chongshou Li, <b>Yuheng Liu</b>, Xinke Li, Yuning Zhang, Tianrui Li, Junsong Yuan
+                                                    <br/> <b>Under Review, 2024</b>
+                                                </small>
+                                            </p>
+                                            <p class="card-text">
+                                                <small>
+                                                    This work introduces Deep Hierarchical Learning (DHL) for 3D data, enhancing hierarchical embedding learning and class hierarchy construction for effective 3D object and scene segmentation.
+                                                </small>
+                                            </p>
+
+                                            <a href="https://github.com/dhl3d/deep-hierarchical-learning-for-3d-segmentation" target="_blank">
+                                                <button class="btn btn-dark btn-research paper-btn"><i class="bi bi-github"></i> Code</button></a>
+
+                                            <a href="https://dhl3d.github.io/" target="_blank">
+                                                <button class="btn btn-primary btn-research paper-btn"><i class="bi bi-globe-americas"></i> Website</button></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="experience">
+                    <div class="mb-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h4 class="m-0">Experience</h4>
+                            <button class="btn btn-light btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExp" aria-expanded="false" aria-controls="collapseExp">
+                                <i class="bi bi-arrows-collapse"></i>
+                            </button>
+                        </div>
+                        <div class="collapse show" id="collapseExp">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Texas A&M University</h5>
+                                    <p class="card-text">
+                                        <small class="text-body-secondary">Aug 2024 - present</small>
+                                        <small class="text-body-secondary"> · CS Ph.D Student</small>
+                                    </p>
+                                    <p class="card-text">
+                                        Research Area: Computer Vision, 3D Vision, Scene Generation <br>
+                                        Supervisors: <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank">Prof. Wenping Wang</a> & <a href="https://people.tamu.edu/~xinli/" target="_blank">Prof. Xin Li</a>
+                                    </p>
+                                    <img src="images/experience-logos/TAMU_logo.png" alt="TAMU_logo" class="school-logo">
+                                </div>
+                            </div>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">University of California, Merced</h5>
+                                    <p class="card-text">
+                                        <small class="text-body-secondary">Jun 2023 - present</small>
+                                        <small class="text-body-secondary"> · Research Assistant</small>
+                                    </p>
+                                    <p class="card-text">
+                                        Research Area: Diffusion Model, Out-door Scene Generation <br>
+                                        Supervisor: <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank">Prof. Ming-Hsuan Yang</a>
+                                    </p>
+                                    <img src="images/experience-logos/UC_Merced_logo.png" alt="UCM_logo" class="school-logo">
+                                </div>
+                            </div>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">University of Leeds</h5>
+                                    <p class="card-text">
+                                        <small class="text-body-secondary">Sep 2020 - Jun 2024</small>
+                                        <small class="text-body-secondary"> · Undergraduate</small>
+                                    </p>
+                                    <p class="card-text">
+                                        B.Sc. in Computer Science <br>
+                                        Graduated with <a href="images/honors/Proof_First_Class.pdf" target="_blank">First-class Degree</a>
+                                    </p>
+                                    <img src="images/experience-logos/leeds_logo.png" alt="UCM_logo" class="school-logo">
+                                </div>
+                            </div>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Southwest Jiaotong University</h5>
+                                    <p class="card-text">
+                                        <small class="text-body-secondary">Sep 2020 - Jun 2024</small>
+                                        <small class="text-body-secondary"> · Undergraduate</small>
+                                    </p>
+                                    <p class="card-text">
+                                        B.Eng. in Computer Science <br>
+                                        GPA: 91.02 / 100 (ranked 1 / 73 in year-2 and year-3) <br>
+                                        Graduated with <a href="images/honors/Outstanding_Graduates.pdf" target="_blank">Outstanding Graduates of Sichuan Province</a> & <u>Best Bachelor Thesis</u>
+                                    </p>
+                                    <img src="images/experience-logos/SWJTU_logo.png" alt="UCM_logo" class="school-logo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="misc">
+
+                    <div class="mb-5">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h4 class="m-0">Honors & Awards</h4>
+                        </div>
+                        <p class="hon">
+                            <a href="images/honors/Proof_First_Class.pdf" target="_blank"><b>First-class Degree in Leeds</b></a>, UK, 2024
+                        </p>
+                        <p class="hon">
+                            <a href="images/honors/Outstanding_Graduates.pdf" target="_blank"><b>Provincial Outstanding Graduate</b></a> (top 3%), Sichuan Province, 2024
+                        </p>
+                        <p class="hon">
+                            <u><b>Outstanding Bachelor Thesis</b></u> (top 1.5%, 1 student in major), SWJTU, 2024
+                        </p>
+                        <p class="hon">
+                            <a href="images/honors/National_Scholarship.pdf" target="_blank"><b>National Scholarship</b></a> (top 0.2% nationwide), Ministry of Education of the People's Republic of China, 2023
+                        </p>
+                        <p class="hon">
+                            <a href="images/honors/Pacemaker_Merit_Student.pdf" target="_blank"><b>Pacemaker to Merit Student Award</b></a> (top 1%), SWJTU, 2023
+                        </p>
+                        <p class="hon">
+                            <u><b>Lan Qiao Cup, Provincial First Prize</b></u>, Sichuan Province, 2023
+                        </p>
+                        <p class="hon">
+                            <a href="images/honors/Collage%20Special%20First%20Prize%20Scholarship.pdf" target="_blank"><b>Collage Special First Prize Scholarship</b></a> (top 1%, 1 student in major), SWJTU, 2022
+                        </p>
+                        <p class="hon">
+                            <a href="images/honors/Merit_Student_Award.pdf" target="_blank"><b>Merit Student Award</b></a> (top 5%), SWJTU, 2022
+                        </p>
+                        <p class="hon">
+                            <a href="images/honors/The%2015th%20China%20College%20Student%20Computer%20Design%20Competition.pdf" target="_blank"><b>Chinese Computer Design Competition (Team Leader), National Second Prize</b></a>, China, 2022
+                        </p>
+                        <p class="hon">
+                            <a href="images/honors/Comprehensive%20Scholarship_Third%20Prize.pdf" target="_blank"><b>Comprehensive Scholarship, Third Prize,</b></a> SWJTU, 2021
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="footer col-md-12 px-4 py-3">
+                <div class="cilix-info">
+                    Copyright &copy;
+                    <span id="copyright-year"></span>
+                    cilix. All rights reserved.
+                </div>
+                <div class="update">
+                    Last updated: 2024-06-09
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var btnCollapse = document.getElementsByClassName("btn-collapse");
+        for (var i = 0; i < btnCollapse.length; i++) {
+            btnCollapse[i].addEventListener("click", function() {
+                var icon = this.children[0].classList;
+                if (icon.contains("bi-arrows-collapse")) {
+                    icon.remove("bi-arrows-collapse");
+                    icon.add("bi-arrows-expand");
+                } else {
+                    icon.remove("bi-arrows-expand");
+                    icon.add("bi-arrows-collapse");
+                }                
+            });
+        }
+
+        let menuOpen = false;
+        function toggleMenu() {
+            const navbarMenu = document.getElementById('navbarMenu');
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                navbarMenu.classList.add('mobile-show');
+            } else {
+                navbarMenu.classList.remove('mobile-show');
+            }
+        }
+
+        window.onload = function() {
+            var currentYear = new Date().getFullYear();
+            var copyrightElement = document.querySelector('#copyright-year');
+            copyrightElement.innerHTML = currentYear;
+        }
+
+        function openInfoBanner() {
+            var infoBanner = document.getElementById('info-banner');
+            infoBanner.style.display = 'block';
+            infoBanner.style.visibility = 'visible';
+        }
+
+        function toggleInfoBanner() {
+            var infoBanner = document.getElementById('info-banner');
+            infoBanner.style.display = 'none';
+            infoBanner.style.visibility = 'hidden';
+        }
+    </script>
+</body>
+</html>
