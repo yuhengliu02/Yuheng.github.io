@@ -2,7 +2,7 @@
     display: flex;
     background-color: rgb(218, 201, 166);
     width: 100%;
-    background-image: url("../images/background/texture.png");
+    /*background-image: url("../images/background/texture.png");*/
     flex-direction: column;
     align-items: center;
     padding-bottom: 50px;
@@ -13,7 +13,7 @@
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background-image: url("../images/avatar/yuheng.JPEG");
+    /*background-image: url("../images/avatar/yuheng.JPEG");*/
     background-size: cover;
     margin-top: 100px;
 }
@@ -70,7 +70,7 @@
 .news{
     display: flex;
     background-color: #f9f9f5;
-    background-image: url("../images/background/texture.png");
+    /*background-image: url("../images/background/texture.png");*/
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
@@ -109,7 +109,7 @@
 .research{
     display: flex;
     background-color: #fcf3e5;
-    background-image: url("../images/background/texture.png");
+    /*background-image: url("../images/background/texture.png");*/
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
@@ -260,7 +260,7 @@
 .experience{
     display: flex;
     background-color: #f9f9f5;
-    background-image: url("../images/background/texture.png");
+    /*background-image: url("../images/background/texture.png");*/
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
@@ -356,7 +356,7 @@
 .honors{
     display: flex;
     background-color: #fcf3e5;
-    background-image: url("../images/background/texture.png");
+    /*background-image: url("../images/background/texture.png");*/
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
@@ -394,7 +394,7 @@
     display: flex;
     position: relative;
     background-color: #f9f9f5;
-    background-image: url("../images/background/texture.png");
+    /*background-image: url("../images/background/texture.png");*/
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
@@ -418,7 +418,7 @@
         display: flex;
         position: relative;
         background-color: #f9f9f5;
-        background-image: url("../images/background/texture.png");
+        /*background-image: url("../images/background/texture.png");*/
         flex-direction: column;
         align-items: center;
         padding-top: 15px;
@@ -596,7 +596,7 @@
 
 .paper-bibtex{
     background-color: #eaeaea;
-    width: 50%;
+    width: 60%;
     padding: 1.6em;
     font-family: "Andale Mono", Courier, "Courier New", monospace;
     font-size:14px;

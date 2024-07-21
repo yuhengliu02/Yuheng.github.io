@@ -97,6 +97,61 @@ canvas {
     color: #a47e07;
 }
 
+.warning-mobile{
+    display: none;
+    visibility: hidden;
+}
+
+.container-mobile{
+    display: none;
+    visibility: hidden;
+}
+
+
+@media (max-width: 770px){
+    .warning{
+        display: none;
+        visibility: hidden;
+    }
+
+    .warning-mobile{
+        display: flex;
+        visibility: visible;
+        margin-top: -10px;
+        margin-bottom: 30px;
+        width: 90%;
+        padding: 10px 20px;
+        background-color: rgba(213, 80, 63, 0.45);
+        border-radius: 10px;
+        border-style: solid;
+        border-color: #d5503f;
+        border-width: 1px;
+        font-size: 14px;
+        color: #8a1c0a;
+    }
+
+    .gallery_container{
+        display: none;
+        visibility: hidden;
+    }
+
+    .container-mobile{
+        display: flex;
+        width: 90%;
+        aspect-ratio: 1 / 1;
+        justify-content: center;
+        align-items: center;
+        visibility: visible;
+        /*box-shadow: #999999 0px 0px 5px;*/
+        border-radius: 10px;
+        background-color: #37393d;
+        color: white;
+        font-size: 40px;
+        transition: ease-in-out 0.3s;
+
+    }
+}
+
 /*.warning-button:hover{*/
 /*    background-color: rgba(213, 80, 63, 0.45);*/
 /*    color: #88291a;*/
