@@ -275,6 +275,16 @@ a:hover {
     background-color: #dedede;
 }
 
+.btn-poster{
+    background-color: #fbbd16;
+    color: white;
+}
+
+.btn-poster:hover{
+    background-color: #d39f15;
+    color: white;
+}
+
 .btn-arxiv img{
     width: 10px!important;
 }
