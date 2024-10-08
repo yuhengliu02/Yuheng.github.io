@@ -640,6 +640,11 @@
     background-color: rgba(204, 30, 66, 0.05);
 }
 
+.conference-oral:hover{
+    background-color: #CC1E42;
+    color: white!important;
+}
+
 @media (max-width: 770px) {
     .paper-title-new{
         font-size: 18px;
